@@ -1,6 +1,6 @@
 {
   "watch": ["src", ".env", "prisma"],
   "ext": "ts,json",
-  "ignore": ["src/**/*.spec.ts"],
+  "ignore": ["src/**/*.spec.ts", "**/swagger.json"],
   "exec": "npx ts-node src/index.ts"
 }

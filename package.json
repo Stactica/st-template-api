@@ -35,6 +35,8 @@
   "dependencies": {
     "@prisma/client": "^4.7.1",
     "dotenv": "^16.0.3",
-    "express": "5.0.0-beta.1"
+    "express": "5.0.0-beta.1",
+    "redoc-express": "^1.0.0",
+    "swagger-autogen": "^2.22.0"
   }
 }
