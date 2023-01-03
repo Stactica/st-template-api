@@ -7,19 +7,15 @@ import redoc from 'redoc-express'
 const prisma = new PrismaClient()
 
 export async function main() {
-  console.log('Hello World')
+  console.log('Connecting to database...')
   await prisma.$connect()
-  console.log('Prisma Connected')
+  console.log('Prisma Connected.')
   dotenv.config()
 
   const app: Express = express()
   const port = process.env.PORT
 
   app.use(express.static(path.join(__dirname, 'public')))
-
-  // app.get('/docs/swagger.json', (req, res) => {
-  //   res.sendFile('swagger.json', { root: '.' })
-  // })
 
   app.get(
     '/docs',
@@ -42,7 +38,7 @@ export async function main() {
   app.listen(port, () => {
     console.log(`⚡️[server]: Server is running at http://localhost:${port}`)
   })
-  // ...
+
   return true
 }
 
@@ -55,19 +51,3 @@ main()
     await prisma.$disconnect()
     process.exit(1)
   })
-
-// console.log('Hello World')
-// // await prisma.$connect()
-// console.log('Prisma Connected')
-// dotenv.config()
-
-// const app: Express = express()
-// const port = process.env.PORT
-
-// app.get('/', (req: Request, res: Response) => {
-//   res.send('Express + TypeScript Server')
-// })
-
-// app.listen(port, () => {
-//   console.log(`⚡️[server]: Server is running at http://localhost:${port}`)
-// })
