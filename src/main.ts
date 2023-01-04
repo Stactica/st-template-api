@@ -1,8 +1,9 @@
 import path from 'path'
 import dotenv from 'dotenv'
-import express, { Express, Request, Response } from 'express'
+import express, { Express } from 'express'
 import { PrismaClient } from '@prisma/client'
-import redoc from 'redoc-express'
+
+import { router } from './router'
 
 const prisma = new PrismaClient()
 
@@ -17,23 +18,11 @@ export async function main() {
 
   app.use(express.static(path.join(__dirname, 'public')))
 
-  app.get(
-    '/docs',
-    redoc({
-      title: 'API Docs',
-      specUrl: '/swagger.json',
-    }),
-  )
+  app.use(router)
 
-  app.get('/version', (req: Request, res: Response) => {
-    return res.send({
-      version: require('../package.json').version,
-    })
-  })
-
-  app.get('/', (req: Request, res: Response) => {
-    return res.send('Express + TypeScript Server')
-  })
+  // app.use('/', (req: Request, res: Response) => {
+  //   return res.status(404).send('Not found')
+  // })
 
   app.listen(port, () => {
     console.log(`⚡️[server]: Server is running at http://localhost:${port}`)

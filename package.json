@@ -38,5 +38,8 @@
     "express": "5.0.0-beta.1",
     "redoc-express": "^1.0.0",
     "swagger-autogen": "^2.22.0"
+  },
+  "prisma": {
+    "schema": "./prisma/schema.prisma"
   }
 }

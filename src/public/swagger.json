@@ -29,7 +29,18 @@
         }
       }
     },
-    "/": {
+    "/health": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/example/hello": {
       "get": {
         "description": "",
         "parameters": [],

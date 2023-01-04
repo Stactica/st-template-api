@@ -1,7 +1,7 @@
 if (process.env.NODE_ENV === 'development') {
   const swaggerAutogen = require('swagger-autogen')
   const outputFile = './public/swagger.json'
-  const endpointsFiles = ['./main.ts']
+  const endpointsFiles = ['./main.ts', './api/*.ts']
   const config = {}
 
   swaggerAutogen()(outputFile, endpointsFiles, config).then(async () => {
